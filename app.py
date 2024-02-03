@@ -7,7 +7,11 @@ st.set_page_config(layout="wide")
 
 # 페이지 1의 내용
 def upgrading_level_by_target_done():
-    df = pd.read_excel('목표WC 달성에 따른 성장치 분석_20240201.xlsx','리딩레벨성장표')
+    df = pd.DataFrame([['Venus','목표WC 달성 ~6회',0.1,1,2445,92],
+              ['Venus','목표WC 달성 7회~',0.7,32,23672,368],
+              ['Earth','목표WC 달성 ~6회',0.1,9,2053,-59],
+              ['Earth','목표WC 달성 7회~',1.0,13,35533,890]],
+               columns = ['행정','구분','AR','BC','W권','WC/권'])
     df.columns = [x.strip() for x in df.columns]
     df['AR'] = df['AR'].apply(lambda x : round(x,1))
     df['BC'] = df['BC'].apply(lambda x : round(x))
